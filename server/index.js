@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const compression = require('compression')
 const session = require('express-session')
 const passport = require('passport')
+const sequelize = require('sequelize')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const db = require('./db')
 const sessionStore = new SequelizeStore({db})
@@ -52,7 +53,6 @@ const createApp = () => {
   console.log('hi')
 
   // auth and api routes
-  app.use('/auth', require('./auth'))
   app.use('/api', require('./api'))
 
 
@@ -97,7 +97,7 @@ const syncDb = () => db.sync()
 // It will evaluate false when this module is required by another module - for example,
 // if we wanted to require our app in a test spec
 if (require.main === module) {
-  sessionStore.sync()
+  sessionStore.sync({force:true })
     .then(syncDb)
     .then(createApp)
     .then(startListening)
