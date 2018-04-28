@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const Driver = require('./driver');
-const User = require('./user');
 const db = require('../db');
 
 
@@ -21,6 +20,14 @@ const Passenger = db.define('passenger', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    originLAT: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    originLONG: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     originRadius: {
         type: Sequelize.INTEGER,
         allowNull: false
@@ -29,7 +36,15 @@ const Passenger = db.define('passenger', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    destinationRadiuss: {
+    destinationLAT: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    destinationLONG: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    destinationRadius: {
         type: Sequelize.INTEGER,
         allowNull: false
     }

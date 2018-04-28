@@ -1,4 +1,3 @@
-const User = require('./user')
 const Driver = require('./driver')
 const Passenger = require('./passenger')
 const db = require('../db')
@@ -16,7 +15,6 @@ const db = require('../db')
  * instead of: const User = require('../db/models/user')
  */
 module.exports = {
-  User,
   Driver,
   Passenger,
   db
