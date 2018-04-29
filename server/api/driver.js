@@ -26,9 +26,6 @@ router.post('/', (req, res, next) => {
         return Passenger.findAll()
         .then(foundPassengers => {
             return foundPassengers.filter(passenger => {
-                console.log((distance(created.originLAT, created.originLONG, passenger.originLAT, passenger.originLONG) < created.originRadius) 
-                &&
-                (distance(created.destinationLAT, created.destinationLONG, passenger.destinationLAT, passenger.destinationLONG) < created.destinationDistance), 'YAY')
                 return ((distance(created.originLAT, created.originLONG, passenger.originLAT, passenger.originLONG) < created.originRadius)
                         &&
                         (distance(created.destinationLAT, created.destinationLONG, passenger.destinationLAT, passenger.destinationLONG) < created.destinationRadius))

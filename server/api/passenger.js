@@ -27,9 +27,6 @@ router.post('/', (req, res, next) => {
         return Driver.findAll()
         .then(foundDrivers => {
             return foundDrivers.filter(driver => {
-                console.log((distance(created.originLAT, created.originLONG, driver.originLAT, driver.originLONG) < created.originRadius) 
-                &&
-                (distance(created.destinationLAT, created.destinationLONG, driver.destinationLAT, driver.destinationLONG) < created.destinationDistance), 'YAY')
                 return ((distance(created.originLAT, created.originLONG, driver.originLAT, driver.originLONG) < created.originRadius)
                         &&
                         (distance(created.destinationLAT, created.destinationLONG, driver.destinationLAT, driver.destinationLONG) < created.destinationRadius))
